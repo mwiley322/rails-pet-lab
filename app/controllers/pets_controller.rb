@@ -11,8 +11,18 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find_by(id: params[:id])
   end
+  def create
+    owner = Owner.find(params[:owner_id])
+    new_pet = Pet.new(pet_params)
+    if new_pet.save
+      owner.pets << new_pet
+      redirect_to owner_pets_path(owner, new_pet)
+    else
+      flash[:error] = new_pet.errors.full_messages.join(", ")
+      redirect_to new_owner_pet_path(owner)
+    end
+  end
 
-  # TODO: set up *create* method with database interactions for create
   # TODO: handle save errors and communicate issues to user
 
   private
