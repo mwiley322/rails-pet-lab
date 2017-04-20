@@ -1,8 +1,13 @@
-<h1>All Pets for <%= @owner.email %></h1>
-<hr>
-<ul>
-  <% @pets.each do |pet| %>
-    <li><%= pet.name %></li>
+  <% if (@pets.size > 0) %>
+  <h1>All Pets for <%= @owner.email %></h1>
+  <hr>
+  <ul>
+    <% @pets.each do |pet| %>
+      <li><%= link_to pet.name, pet_path(pet)%></li>
+    <% end %>
+  </ul>
+  <hr>
+  <% else %>
+    <h1><%= @owner.email %> doesn't have any pets!</h1>
+    <%= link_to "Back to Owners", owners_path %>
   <% end %>
-</ul>
-<hr>

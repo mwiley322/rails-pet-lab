@@ -6,7 +6,7 @@ class PetsController < ApplicationController
   end
 
   def show
-    # TODO: set up data for show view
+    @pet = Pet.find_by(id: params[:id])
   end
 
   # TODO: set up *new* method with data for new view
