@@ -1,4 +1,4 @@
-<%= button_to "Add a Pet", { action: "new" }, form_class: "pull-right" %>
+<%= link_to "Add a Pet",  new_owner_pet_path(@owner.id), class: "btn btn-primary pull-right" %>
 <% if (@pets.size > 0) %>
 <h1>All Pets for <%= @owner.email %></h1>
 <hr>

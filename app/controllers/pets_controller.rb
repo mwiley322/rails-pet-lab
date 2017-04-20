@@ -4,12 +4,12 @@ class PetsController < ApplicationController
     @owner = Owner.find_by(id: params[:owner_id])
     @pets = @owner.pets
   end
-
+  def new
+    @pet = Pet.new
+  end
   def show
     @pet = Pet.find_by(id: params[:id])
   end
-
-  # TODO: set up *new* method with data for new view
 
   # TODO: set up *create* method with database interactions for create
   # TODO: handle save errors and communicate issues to user
