@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
 
   resources :pets, only: :show
-  
+
 end

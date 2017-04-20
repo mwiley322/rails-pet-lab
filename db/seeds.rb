@@ -7,7 +7,7 @@ Owner.destroy_all
 
 # Owners
 owners_data = []
-4.times do
+10.times do
   first = FFaker::Name.first_name
   last = FFaker::Name.last_name
   owners_data << {
@@ -36,7 +36,7 @@ def random_pet_breed
 end
 
 pets_data = []
-6.times do
+20.times do
   pets_data << {
     name: FFaker::Name.first_name,
     breed: random_pet_breed,

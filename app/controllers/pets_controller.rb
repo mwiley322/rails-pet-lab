@@ -5,6 +5,7 @@ class PetsController < ApplicationController
     @pets = @owner.pets
   end
   def new
+    @owner = Owner.find_by(id: params[:owner_id])
     @pet = Pet.new
   end
   def show
