@@ -17,13 +17,12 @@ class PetsController < ApplicationController
     if new_pet.save
       owner.pets << new_pet
       redirect_to owner_pets_path(owner, new_pet)
+      flash[:success] = "You have successfully added a pet!"
     else
-      flash[:error] = new_pet.errors.full_messages.join(", ")
+      flash[:error] = "There was an error adding your pet. Please try again."
       redirect_to new_owner_pet_path(owner)
     end
   end
-
-  # TODO: handle save errors and communicate issues to user
 
   private
   def pet_params

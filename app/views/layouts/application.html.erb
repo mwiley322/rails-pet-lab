@@ -16,6 +16,11 @@
   <ul class="nav nav-pills">
     <li role="presentation" class="active"><%= link_to "Home", root_path %></li>
   </ul>
+  <% flash.each do |name, msg| %>
+  <div class="alert <% if name=="error" %> alert-danger <% elsif name=="success" %> alert-success <% else %> alert-info <% end %>">
+    <%= msg %>
+  </div>
+  <% end %>
 
   <div class="container">
     <div class="row">
